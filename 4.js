@@ -15,8 +15,8 @@
 
 const p1 =  new Promise((resolve , reject)=>{
     setTimeout(() => {
-        // resolve("Done 1");
-        reject("Err 1")
+        resolve("Done 1");
+        // reject("Err 1")
     }, 1000);
 })
 
@@ -50,6 +50,33 @@ const p4 =  new Promise((resolve , reject)=>{
 // Promise.race([p1,p2,p3,p4]).then((res)=>{console.log(res)}).catch((err)=>{console.log("error")});
 // jeda phela chlpya chlpya pave error hove ya fullfill
 
-Promise.any([p1,p2,p3,p4]).then((res)=>{console.log(res)}).catch((err)=>{console.log("error")});
+// Promise.any([p1,p2,p3,p4]).then((res)=>{console.log(res)}).catch((err)=>{console.log("error")});
 
 // jeda sbton phela promise fullfilled hogya othe tk chlega 
+
+
+
+// p1.then((res)=>{
+//     console.log(res)
+// })
+// p2.then((res)=>{
+//     console.log(res)
+// })
+// p3.then((res)=>{console.log(res)
+// })
+// p4.then((res)=>{
+//     console.log(res)
+// })
+p1.then((res)=>{
+    console.log(res)
+})
+.then(()=>{
+    p2.then((res)=>{
+        console.log(res)
+    })
+    .then(()=>{
+        p3.then((res)=>{
+            console.log(res)
+        })
+    })
+})

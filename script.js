@@ -1,14 +1,17 @@
-document.getElementById("grandparent").addEventListener("click", () => {
+document.getElementById("grandparent").addEventListener("click", (e) => {
   console.log("grandparent");
-},true);
+  e.stopPropagation();
+},false);
 
-document.getElementById("parent").addEventListener("click", () => {
+document.getElementById("parent").addEventListener("click", (e) => {
   console.log("parent");
-},true);
+  e.stopPropagation();
+},false);
 
-document.getElementById("child").addEventListener("click", () => {
+document.getElementById("child").addEventListener("click", (e) => {
   console.log("child");
-},true);
+  e.stopPropagation();
+},false);
 
 
 // function grandparentHandler() {
